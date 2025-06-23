@@ -1,19 +1,125 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Love Letter</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I Love You</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="pwa-icon.png">
+  <link rel="icon" href="icon.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(to bottom, #fceff9, #ffe5ec);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .heart {
+      width: 120px;
+      height: 120px;
+      margin-top: 50px;
+      background: url("heart.png") no-repeat center/contain;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #d63384;
+      margin-top: 20px;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 28px;
+      background-color: #007aff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0051c6;
+    }
+
+    .scroll {
+      margin-top: 30px;
+      width: 90%;
+      max-width: 500px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      line-height: 1.6;
+      font-size: 16px;
+      color: #333;
+      display: none;
+    }
+
+    .scroll-icon {
+      font-size: 28px;
+      margin-top: 10px;
+      animation: blink 1s infinite;
+      cursor: pointer;
+      color: #ff4d6d;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart"></div>
+  <h1>I Love You</h1>
+  <button class="btn" onclick="toggleScroll()">Open Letter</button>
+  <div class="scroll-icon" onclick="toggleScroll()">📜</div>
+
+  <div class="scroll" id="scrollLetter">
+    <strong>Para sa'yo, Baby Ko</strong><br><br>
+
+    Kung dumating man ang araw na maramdaman mong wala nang nagmamahal sa'yo, gusto kong malaman mo na hindi totoo iyon. Kahit hindi mo maramdaman mula sa ibang tao o sa pamilya mo, ako, andito lang. Hindi ako aalis.<br><br>
+
+    Mahal kita, hindi dahil sa kung ano ang meron ka o kung gaano ka kagaling. Mahal kita dahil ikaw yan. Buo ka sa paningin ko, kahit pakiramdam mo ay basag ka na. Kahit hindi ka laging masaya, kahit pagod ka na, kahit umiiyak ka sa mga gabing walang nakakakita, gusto kong malaman mo na may isang taong totoo ang pagmamahal sa'yo.<br><br>
+
+    Ako iyon.<br><br>
+
+    Hindi mo kailangang pilitin ang sarili mong maging okay para lang mahalin. Ako mismo ang pipili sa'yo araw-araw. Kapag naguguluhan ka, tutulungan kitang hanapin ang sarili mo. Kapag napagod ka, pahinga ka sa puso ko.<br><br>
+
+    Kung hindi mo man maramdaman ang pagmamahal ng iba, gusto kong maalala mong may isang taong handang magpuno ng kulang sa'yo. Hindi kita iiwan, lalo na sa mga panahong kailangan mo ng karamay.<br><br>
+
+    Sa mundong puno ng ingay at sakit, ako ang tahimik mong sandigan. Lagi kitang pipiliin.<br><br>
+
+    Mahal na mahal kita. ❤️
+  </div>
+
   <script>
+    function toggleScroll() {
+      const scroll = document.getElementById("scrollLetter");
+      scroll.style.display = scroll.style.display === "block" ? "none" : "block";
+    }
+
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js');
     }
   </script>
-</head>
-<body>
-  <h1>I Love You ❤️</h1>
+
 </body>
-</html>
+    </html>
